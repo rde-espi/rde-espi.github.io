@@ -1,0 +1,106 @@
+/* --- CONFIGURAÇÃO GLOBAL DO CORPO --- */
+html {
+    scroll-behavior: smooth;
+    scroll-snap-type: y mandatory;
+}
+
+body {
+    width: 70%;
+    margin: 0 auto;
+    background-color: rgb(115, 201, 235);
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 50px;
+    color: rgb(255, 255, 255);
+    font-family: sans-serif;
+    transition: background-color 0.2s ease-out; /* Suaviza a troca de cor do JS */
+}
+
+/* --- MENSAGENS COM EFEITO MAGNÉTICO (Substitui o div antigo) --- */
+.divSlogan {
+    scroll-snap-align: center;
+    margin: 40px auto;
+    width: 100%;
+    height: auto; /* Permite que a caixa se ajuste ao texto */
+    min-height: 150px; 
+    background-color: rgb(11, 58, 188);
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 50px;
+    padding: 40px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+}
+
+/* --- BARRA DE PROGRESSO (Corrigida a altura para não quebrar o scroll) --- */
+#progressBar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 20px; /* Altura ideal e discreta para uma barra de leitura */
+    background-color: #00ffcc; 
+    width: 0%;                
+    z-index: 9999;            
+    box-shadow: 0 0 10px #eeff00, 0 0 20px #ff2600; 
+    transition: width 0.1s ease-out; 
+}
+
+/* --- CONTENTOR DO MOSAICO --- */
+.mosaico-container {
+    scroll-snap-align: center; /* Força o íman a travar o mosaico inteiro no ecrã */
+    position: relative;
+    width: 100%;
+    max-width: 100%; /* Corrigido para respeitar os 70% do body */
+    margin: 80px auto;
+    overflow: hidden;
+    border-radius: 12px; 
+    box-shadow: 0 0 30px rgba(0, 255, 204, 0.4); 
+}
+
+/* --- CONFIGURAÇÃO RIGOROSA DO GRID 2x2 --- */
+.mosaicoImagens {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important; /* Obriga a criar 2 colunas */
+    grid-template-rows: repeat(2, 1fr) !important;    /* Obriga a criar 2 linhas */
+    gap: 0 !important; /* Junta as fotos totalmente */
+    width: 100%;
+    height: auto; /* Cancela qualquer herança indesejada */
+}
+
+/* --- TAMANHO E CORTE DAS FOTOS --- */
+.mosaicoImagens img {
+    width: 100% !important;
+    height: 350px !important; /* Ajustado para não ficar absurdamente gigante no ecrã */
+    object-fit: contain !important; /* Faz o quadrado perfeito sem esticar */
+    display: block !important;
+}
+
+/* --- TEXTO SOBREPOSTO --- */
+.texto-mosaico {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); 
+    z-index: 10; 
+    color: #ffffff;
+    font-size: 2.5rem; 
+    font-weight: 900;
+    text-transform: uppercase;
+    text-align: center;
+    width: 85%;
+    text-shadow: 0 0 10px #00ffcc, 0 0 20px #00ffcc, 3px 3px 5px #000000;
+    background-color: rgba(0, 0, 0, 0.5); /* Fundo escuro para destacar a letra */
+    padding: 15px;
+    border-radius: 8px;
+    pointer-events: none; 
+    margin: 0;
+}
+
+/* --- FOOTER --- */
+footer {
+    scroll-snap-align: end; /* Faz o scroll terminar confortavelmente no footer */
+    padding: 40px 0;
+    font-size: 20px;
+}
