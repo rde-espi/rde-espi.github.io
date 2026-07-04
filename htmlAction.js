@@ -30,6 +30,9 @@ function getName(){
         getName();
     } else {
         document.getElementById("firstMessage").innerText = "OIII!!! " + name + " Faça Scroll até o jogo começar!";
+        document.querySelector(".mosaico-container").style.display = "block";
+        
+        
         criaMensagemFinal();
     }
     insertBR();

@@ -49,6 +49,7 @@ body {
 
 /* --- CONTENTOR DO MOSAICO --- */
 .mosaico-container {
+        display: none;
     scroll-snap-align: center; /* Força o íman a travar o mosaico inteiro no ecrã */
     position: relative;
     width: 100%;
