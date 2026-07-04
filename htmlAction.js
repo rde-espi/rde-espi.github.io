@@ -2,6 +2,30 @@ window.onload = getName;
 
 var name = "";
 
+
+
+
+
+function getName(){
+    // 1. Faz o primeiro prompt para pedir o nome
+    name = prompt("Qual o seu nome?");
+
+    // 2. Loop While: Se for nulo, vazio ou apenas espaços, fica preso aqui
+    while (name == null || name.trim() == "" || name.trim().length == 0) {
+        alert("Você não digitou o seu nome, É obrigatório!");
+        name = prompt("Qual o seu nome?"); // Pede novamente dentro do ciclo
+    }
+
+    // 3. SÓ CHEGA AQUI SE O NOME FOR VÁLIDO
+    document.getElementById("firstMessage").innerText = "OIII!!! " + name + " Faça Scroll até o jogo começar!";
+    
+    // Agora sim, o Mosaico é ativado em total segurança
+    document.querySelector(".mosaico-container").style.display = "block";
+    
+    criaMensagemFinal();
+    insertBR();
+}
+
 function criaMensagemFinal(){
     if(name.substring(0,1) == "w" || name.substring(0,1) == "W"){
         document.getElementById("mensagemFinal").innerText = "Oi tio Tom, sou o Alexandre / a Clara";
@@ -18,26 +42,10 @@ function criaMensagemFinal(){
     if(name.substring(0,1) == "l" && name.substring(1,2) == "e" || name.substring(0,1) == "L" && name.substring(1,2) == "e"){
         document.getElementById("mensagemFinal").innerText = "Oi prima Leticia (Piolha), sou o Alexandre / a Clara";
     }
-}
-
-
-
-function getName(){
-    name = prompt("Qual o seu name?");
-
-    if(name == null || name == ""){
-        alert("Você não digitou o seu nome, É obrigatório!");
-        getName();
-    } else {
-        document.getElementById("firstMessage").innerText = "OIII!!! " + name + " Faça Scroll até o jogo começar!";
-        document.querySelector(".mosaico-container").style.display = "block";
-        
-        
-        criaMensagemFinal();
+    if(name.substring(0,1) == "M" || name.substring(0,1) == "m"){
+        document.getElementById("mensagemFinal").innerText = "Oi tio Mateus (popota/gordo), sou o Alexandre / a Clara";
     }
-    insertBR();
 }
-
 
 function insertBR(){
    const div1 = document.getElementById("firstMessage");
